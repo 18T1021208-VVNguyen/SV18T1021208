@@ -1,0 +1,87 @@
+﻿
+@{
+   
+
+}
+
+<div class="container" style="width:85% ; text-align:center">
+    <div class="box box-primary" >
+
+        <!-- /.box-body -->
+        <div class="box-body" style="margin:15px 50px 0 0">
+            <form class="form-horizontal" action="/action_page.php">
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Ảnh đại diện</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" id="Photo" name="Photo" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Họ:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="LastName" autocomplete="off"
+                               placeholder="Nhập họ " name="LastName" autofocus>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Tên:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="FirstName" placeholder="Nhập tên " name="FirstName">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Ngày sinh:</label>
+                    <div class="col-sm-10">                   
+                            <input type="date" class="form-control" id="BirthDate" name="BirthDate">                   
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Email: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="Email" name="Email" placeholder="Nhập email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Ghi chú:</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" rows="5" id="Notes" name="Notes"></textarea>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </form>
+        </div>
+
+        <!--box-footer-->
+        <div class="box-footer">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-save"></i>
+                        Lưu dữ liệu
+                    </button>
+                    <a href="~/employee" class="btn btn-warning">
+                        <i class="fa fa-backward"></i>
+                        Quay lại
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.box -->
+
+</div>
+
+
+
+
+

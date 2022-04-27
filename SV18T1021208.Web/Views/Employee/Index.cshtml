@@ -1,0 +1,87 @@
+﻿@model SV18T1021208.Web.Models.EmployeePaginationResult
+@{
+    ViewBag.Title = "Nhân viên";
+}
+
+
+<form action="~/employee" method="get">
+    <div class="input-group">
+        <input type="text" name="searchValue" class="form-control" 
+               placeholder="Nhập họ hoặc tên , email ."
+               autofocus value="@Model.SearchValue">
+        <span class="input-group-btn">
+            <button type="submit"  id="search-btn" class="btn btn-flat btn-info" autofocus>
+                <i class="fa fa-search"></i>
+            </button>
+            <a href="~/employee/create" class="btn btn-flat btn-success" style="margin-left: 5px">
+                Bổ sung
+            </a>
+        </span>
+    </div>
+</form>
+<div style="margin-top:10px">
+    <p> Có tổng cộng <b> @Model.RowCount </b> nhân viên trong<b> @Model.PageCount </b>  trang </p>
+</div>
+<div class="table-responsive" style="margin-top: 10px">
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr class="bg-blue">
+                <th style="text-align: center ">Ảnh đại diện</th>
+                <th style="text-align: center ">Họ</th>
+                <th style="text-align: center ">Tên</th>
+                <th style="text-align: center ">Ngày sinh</th>
+                <th style="text-align: center ">Email</th>
+                <th style="text-align: center "></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Data)
+            {
+                <tr style="text-align:center">
+                    <td>
+                        <img src="@item.Photo" class="img-thumbnail"
+                             width="40" height="40" alt="Cinque Terre">
+                    </td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.BirthDate</td>
+                    <td>@item.Email</td>
+                    <td style="width: 100px">
+                        <a href="~/employee/edit/@item.EmployeeID" class="btn btn-success btn-xm">
+                            <i class="fa fa-edit"> </i>
+                        </a>
+
+                        <a href="~/employee/delete/@item.EmployeeID" class="btn btn-danger btn-xm">
+                            <i class="fa fa-trash-o"> </i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+
+
+        </tbody>
+    </table>
+</div>
+<div class="text-center">
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            if (Model.Page == i)
+            {
+                <li class="active"><a href="~/employee?page=@i&searchValue=@Model.SearchValue">@i</a></li>
+            }
+            else
+            {
+                <li><a href="~/employee?page=@i&searchValue=@Model.SearchValue">@i</a></li>
+            }
+
+        }
+    </ul>
+</div>
+
+
+
+
+
+

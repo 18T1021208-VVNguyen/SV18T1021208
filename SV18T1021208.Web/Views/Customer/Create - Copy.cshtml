@@ -1,0 +1,108 @@
+﻿@model SV18T1021208.DomainModel.Customer
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="width:85% ; text-align:center">
+    <div class="box box-primary">
+
+        <!-- /.box-body -->
+        <div class="box-body" style="margin:15px 50px 0 0">
+            <form class="form-horizontal" action="~/customer/save" method="post">
+
+                <input type="hidden" name="CustomerID" value="@Model.CustomerID" />
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Tên khách hàng:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="CustomerNameS" autocomplete="off"
+                               placeholder="Nhập tên khách hàng" name="CustomerName" autofocus
+                               value="@Model.CustomerName">
+                        @Html.ValidationMessage("CustomerName", new { @style = "color: #f00" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Tên Giao dịch:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="ContactName" placeholder="Nhập tên Giao dịch" name="ContactName"
+                               value="@Model.ContactName">
+                        @Html.ValidationMessage("ContactName", new { @style = "color: #f00" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Địa chỉ :</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="Address" placeholder="Nhập Địa chỉ" name="Address" value="@Model.Address">
+                        @Html.ValidationMessage("Address", new { @style = "color: #f00" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Quốc gia:</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="Country" name="Country">
+                            @foreach (var c in SV18T1021208.BusinessLayer.CommonDataService.ListOfCountries())
+                            {
+                                if (c.CountryName == Model.Country)
+                                {
+                                    <option selected value="@c.CountryName"> @c.CountryName</option>
+                                }
+                                else
+                                {
+                                    <option value="@c.CountryName"> @c.CountryName</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Thành phố</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="City" name="City" placeholder="Nhập tên thành phố" value="@Model.City">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Mã bưu chính</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="PostalCode" name="PostalCode" placeholder="Nhập mã bưu chính" value="@Model.PostalCode">
+                    </div>
+                </div>
+
+                <!--box-footer-->
+                <div class="box-footer">
+                    
+                                      @*  @if (!ViewData.ModelState.IsValid)
+                                        {
+                                            @Html.ValidationSummary();
+                                        }*@
+                    
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-save"></i>
+                                Lưu dữ liệu
+                            </button>
+                            <a href="~/customer" class="btn btn-warning">
+                                <i class="fa fa-backward"></i>
+                                Quay lại
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+
+    </div>
+    <!-- /.box -->
+
+</div>
+
